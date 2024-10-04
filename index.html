@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
   <title>Financial Market Visualizations</title>
   <!-- Import Vega & Vega-Lite -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
@@ -13,7 +14,7 @@
   <!-- Import pure.css -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,16 +29,16 @@
       font-family: 'Open Sans', sans-serif;
       margin: 0; /* Remove default margin */
       padding: 0; /* Remove default padding */
+      display: flex;
+      flex-direction: column; /* Arrange children vertically */
+      height: 100vh; /* Full height of the viewport */
     }
 
     .page {
-      margin: 20px;
-    }
-
-    .vis-container {
-      width: 100%;
-      height: 40vh; /* Set height relative to viewport */
-      margin-top: 20px;
+      padding: 20px; /* Add padding for the content */
+      flex: 1; /* Allow this section to grow and fill space */
+      display: flex;
+      flex-direction: column;
     }
 
     h1, h2 {
@@ -65,18 +66,23 @@
     }
 
     .visualization {
-      height: 100%; /* Make sure visualizations take full height of the container */
       width: 100%; /* Ensure visualizations are responsive */
+      height: 100%; /* Full height of the container */
     }
 
-    .pure-u-1-2, .pure-u-2-3, .pure-u-1-3 {
-      padding-bottom: 20px; /* Adds space between grid sections */
+    .visualization-container {
+      flex: 1; /* Allow visualization containers to grow */
+      display: flex; /* Use flexbox for layout */
+      flex-direction: column; /* Stack visualizations vertically */
+      margin-top: 20px;
+    }
+
+    .pure-g {
+      margin-bottom: 20px; /* Add space between groups */
     }
 
     @media (max-width: 768px) {
-      .vis-container {
-        height: 30vh; /* Adjust height for smaller screens */
-      }
+      /* Adjust styles for smaller screens if needed */
     }
   </style>
 </head>
@@ -94,7 +100,7 @@
     <!-- end pure grid group -->
 
     <!-- Visualization 1: Currency Exchange Rates Map -->
-    <div class="pure-g">
+    <div class="visualization-container pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
           <h2>Currency Exchange Rates against MYR</h2>
@@ -108,7 +114,7 @@
     <!-- end pure grid group -->
 
     <!-- Visualization 2: Scatter Plot of Company Data -->
-    <div class="pure-g">
+    <div class="visualization-container pure-g">
       <div class="pure-u-2-3">
         <div id="plot" class="visualization"></div>
       </div>
@@ -121,16 +127,16 @@
     </div>
     <!-- end pure grid group -->
 
-   <!-- Footer -->
-  <div class="pure-g">
-    <div class="pure-u-1-1 small-font">
-      <p>This visualisation is created by <a href="#" target="_blank">Chung Min Yi</a>. 
-      The data sources are from: 
-      <a href="https://data.world/finance/malaysia-largest-companies" target="_blank">Malaysia's Largest Companies Dataset</a> 
-      and 
-      <a href="https://data.gov.my/data-catalogue/exchangerates" target="_blank">Currency Exchange Rates from data.gov.my</a>.</p>
+    <!-- Footer -->
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="#" target="_blank">Chung Min Yi</a>. 
+        The data sources are from: 
+        <a href="https://data.world/finance/malaysia-largest-companies" target="_blank">Malaysia's Largest Companies Dataset</a> 
+        and 
+        <a href="https://data.gov.my/data-catalogue/exchangerates" target="_blank">Currency Exchange Rates from data.gov.my</a>.</p>
+      </div>
     </div>
-  </div>
 
   </div> <!-- end page -->
 
