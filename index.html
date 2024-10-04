@@ -26,6 +26,8 @@
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
     }
 
     .page {
@@ -34,7 +36,7 @@
 
     .vis-container {
       width: 100%;
-      height: 400px;
+      height: 40vh; /* Set height relative to viewport */
       margin-top: 20px;
     }
 
@@ -63,12 +65,18 @@
     }
 
     .visualization {
-      height: 450px; /* Ensures visualization has enough height */
-      margin-top: 20px; /* Adds margin to prevent overlap */
+      height: 100%; /* Make sure visualizations take full height of the container */
+      width: 100%; /* Ensure visualizations are responsive */
     }
 
     .pure-u-1-2, .pure-u-2-3, .pure-u-1-3 {
       padding-bottom: 20px; /* Adds space between grid sections */
+    }
+
+    @media (max-width: 768px) {
+      .vis-container {
+        height: 30vh; /* Adjust height for smaller screens */
+      }
     }
   </style>
 </head>
