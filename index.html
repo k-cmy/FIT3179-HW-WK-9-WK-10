@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Market Visualizations</title>
+  <!-- Import Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .page {
+      margin: 20px;
+    }
+
+    .vis-container {
+      width: 100%;
+      height: 400px;
+    }
+
+    h1, h2 {
+      font-weight: 600;
+    }
+
+    .description-left {
+      margin-right: 10px;
+    }
+
+    .description-right {
+      margin-left: 10px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .small-font {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Financial Market Visualizations</h1>
+        <p>This page displays interactive visualizations of currency exchange rates against the Malaysian Ringgit (MYR) and market comparisons of companies in Malaysia.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Visualization 1: Currency Exchange Rates Map -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <h2>Currency Exchange Rates against MYR</h2>
+          <p>This visualization displays a world map where each country is colored according to its currency exchange rate against the MYR over time.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Visualization 2: Scatter Plot of Company Data -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="description description-right">
+          <h2>Company Sales, Profit & Market Value</h2>
+          <p>This scatter plot compares the sales, profit, and market value of Malaysian companies, with interactive features such as sliders for filtering data based on various metrics.</p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+   <!-- Footer -->
+  <div class="pure-g">
+    <div class="pure-u-1-1 small-font">
+      <p>This visualisation is created by <a href="#" target="_blank">Chung Min Yi</a>. 
+      The data sources are from: 
+      <a href="https://data.world/finance/malaysia-largest-companies" target="_blank">Malaysia's Largest Companies Dataset</a> 
+      and 
+      <a href="https://data.gov.my/data-catalogue/exchangerates" target="_blank">Currency Exchange Rates from data.gov.my</a>.</p>
+    </div>
+  </div>
+
+  </div> <!-- end page -->
+
+  <!-- Vega-Lite Visualization Scripts -->
+  <script type="text/javascript">
+     var specVis1 = "./js/MAP1.json";
+    var specVis2 = "./js/plot.json";   
+
+    vegaEmbed('#vis1', specVis1, { "actions": false }).catch(console.error);
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).catch(console.error);
+  </script>
+</body>
+
+</html>
