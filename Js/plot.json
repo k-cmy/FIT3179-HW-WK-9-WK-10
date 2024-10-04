@@ -4,7 +4,7 @@
   "height": 600,
   "title": "Top Malaysian Companies by Sales, Profits, Assets, and Market Value (May 2013)",
   "data": {
-    "url": "https://raw.githubusercontent.com/k-cmy/FIT3179-A2/main/datasets/Malaysia_largest_companies.csv",
+    "url": "https://raw.githubusercontent.com/k-cmy/FIT3179-HW-WK-9-WK-10/main/datasets/Malaysia_largest_companies.csv",
     "format": {
       "type": "csv",
       "parse": {
